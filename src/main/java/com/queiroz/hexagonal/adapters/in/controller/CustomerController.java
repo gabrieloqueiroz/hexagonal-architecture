@@ -4,6 +4,7 @@ import com.queiroz.hexagonal.adapters.in.controller.mapper.CustomerRequestMapper
 import com.queiroz.hexagonal.adapters.in.controller.request.CustomerRequest;
 import com.queiroz.hexagonal.adapters.in.controller.response.CustomerResponse;
 import com.queiroz.hexagonal.application.core.domain.Customer;
+import com.queiroz.hexagonal.application.ports.in.DeleteCustomerInputPort;
 import com.queiroz.hexagonal.application.ports.in.FindCustomerByIdInputPort;
 import com.queiroz.hexagonal.application.ports.in.InsertCustomerInputPort;
 import com.queiroz.hexagonal.application.ports.in.UpdateCustomerInputPort;
@@ -19,17 +20,20 @@ public class CustomerController {
     private InsertCustomerInputPort insertCustomerInputPort;
     private FindCustomerByIdInputPort findCustomerByIdInputPort;
     private UpdateCustomerInputPort updateCustomerInputPort;
+    private DeleteCustomerInputPort deleteCustomerInputPort;
     private CustomerRequestMapper customerRequestMapper;
 
     @Autowired
     public CustomerController(InsertCustomerInputPort insertCustomerInputPort,
                               FindCustomerByIdInputPort findCustomerByIdInputPort,
                               UpdateCustomerInputPort updateCustomerInputPort,
+                              DeleteCustomerInputPort deleteCustomerInputPort,
                               CustomerRequestMapper customerRequestMapper
                               ) {
         this.insertCustomerInputPort = insertCustomerInputPort;
         this.findCustomerByIdInputPort = findCustomerByIdInputPort;
         this.updateCustomerInputPort = updateCustomerInputPort;
+        this.deleteCustomerInputPort = deleteCustomerInputPort;
         this.customerRequestMapper = customerRequestMapper;
     }
 
@@ -58,6 +62,12 @@ public class CustomerController {
         customer.setId(id);
         updateCustomerInputPort.update(customer, customerRequest.getZipCode());
 
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable String id){
+        deleteCustomerInputPort.delete(id);
         return ResponseEntity.noContent().build();
     }
 }
