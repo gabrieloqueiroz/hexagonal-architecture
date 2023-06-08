@@ -15,13 +15,18 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/customers")
 public class CustomerController {
 
-    @Autowired
     private InsertCustomerInputPort insertCustomerInputPort;
-    @Autowired
     private FindCustomerByIdInputPort findCustomerByIdInputPort;
-    @Autowired
     private CustomerRequestMapper customerRequestMapper;
 
+    @Autowired
+    public CustomerController(InsertCustomerInputPort insertCustomerInputPort,
+                              FindCustomerByIdInputPort findCustomerByIdInputPort,
+                              CustomerRequestMapper customerRequestMapper) {
+        this.insertCustomerInputPort = insertCustomerInputPort;
+        this.findCustomerByIdInputPort = findCustomerByIdInputPort;
+        this.customerRequestMapper = customerRequestMapper;
+    }
 
     @PostMapping
     public ResponseEntity<Void> insert(@RequestBody @Valid CustomerRequest customerRequest){
