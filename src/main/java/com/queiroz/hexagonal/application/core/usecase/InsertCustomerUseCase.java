@@ -5,12 +5,12 @@ import com.queiroz.hexagonal.application.ports.in.InsertCustomerInputPort;
 import com.queiroz.hexagonal.application.ports.out.FindAddressByZipCodeOutputPort;
 import com.queiroz.hexagonal.application.ports.out.InsertCostumerOutputPort;
 
-public class InsertCostumerUseCase implements InsertCustomerInputPort {
+public class InsertCustomerUseCase implements InsertCustomerInputPort {
 
     private final FindAddressByZipCodeOutputPort findAddressByZipCodeOutputPort;
     private final InsertCostumerOutputPort insertCostumerOutputPort;
 
-    public InsertCostumerUseCase(
+    public InsertCustomerUseCase(
             FindAddressByZipCodeOutputPort findAddressByZipCodeOutputPort,
             InsertCostumerOutputPort insertCostumerOutputPort){
         this.findAddressByZipCodeOutputPort = findAddressByZipCodeOutputPort;
