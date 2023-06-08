@@ -1,5 +1,6 @@
 package com.queiroz.hexagonal.application.core.usecase;
 
+import com.queiroz.hexagonal.application.core.domain.Customer;
 import com.queiroz.hexagonal.application.ports.in.FindCustomerByIdInputPort;
 import com.queiroz.hexagonal.application.ports.out.DeleteCustomerOutputPort;
 
@@ -14,8 +15,8 @@ public class DeleteCustomerByIdUseCase {
         this.findCustomerByIdInputPort = findCustomerByIdInputPort;
     }
 
-    public void delete(String id) {
-        findCustomerByIdInputPort.find(id);
-        deleteCustomerOutputPort.delete(id);
+    public void delete(Customer customer) {
+        findCustomerByIdInputPort.find(customer.getId());
+        deleteCustomerOutputPort.delete(customer);
     }
 }
