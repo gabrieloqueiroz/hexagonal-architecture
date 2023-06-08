@@ -2,7 +2,6 @@ package com.queiroz.hexagonal.adapters.out;
 
 import com.queiroz.hexagonal.adapters.out.client.FindAddressByZipCodeClient;
 import com.queiroz.hexagonal.adapters.out.client.mapper.AddressResponseMapper;
-import com.queiroz.hexagonal.adapters.out.client.response.AddressResponse;
 import com.queiroz.hexagonal.application.core.domain.Address;
 import com.queiroz.hexagonal.application.ports.out.FindAddressByZipCodeOutputPort;
 import org.springframework.beans.factory.annotation.Autowired;
