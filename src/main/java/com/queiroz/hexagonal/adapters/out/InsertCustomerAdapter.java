@@ -10,11 +10,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class InsertCustomerAdapter implements InsertCostumerOutputPort {
 
-    @Autowired
+
     private CustomerRepository customerRepository;
+    private CustomerEntityMapper customerEntityMapper;
 
     @Autowired
-    private CustomerEntityMapper customerEntityMapper;
+    public InsertCustomerAdapter(CustomerRepository customerRepository, CustomerEntityMapper customerEntityMapper) {
+        this.customerRepository = customerRepository;
+        this.customerEntityMapper = customerEntityMapper;
+    }
 
     @Override
     public void insert(Customer customer) {

@@ -13,11 +13,14 @@ import java.util.Optional;
 @Component
 public class FindCustomerByIdAdapter implements FindCustomerByIdOutputPort {
 
-    @Autowired
     private CustomerRepository customerRepository;
+    private CustomerEntityMapper customerEntityMapper;
 
     @Autowired
-    private CustomerEntityMapper customerEntityMapper;
+    public FindCustomerByIdAdapter(CustomerRepository customerRepository, CustomerEntityMapper customerEntityMapper) {
+        this.customerRepository = customerRepository;
+        this.customerEntityMapper = customerEntityMapper;
+    }
 
     @Override
     public Optional<Customer> find(String id) {
