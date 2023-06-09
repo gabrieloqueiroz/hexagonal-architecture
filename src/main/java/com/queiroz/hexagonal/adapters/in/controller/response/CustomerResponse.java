@@ -2,11 +2,16 @@ package com.queiroz.hexagonal.adapters.in.controller.response;
 
 import lombok.Data;
 
+
 @Data
 public class CustomerResponse {
 
     private String name;
+
+    private AddressResponse address;
+
     private String cpf;
-    private AddressResponse addressResponse;
-    private Boolean isValidCpf;
+
+    private boolean validCpf;
+
 }

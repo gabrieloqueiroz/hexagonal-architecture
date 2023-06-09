@@ -11,14 +11,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class ReceiveValidateCpfConsumer {
 
-    private CustomerMessageMapper customerMessageMapper;
-    private UpdateCustomerInputPort updateCustomerInputPort;
-
     @Autowired
-    public ReceiveValidateCpfConsumer(CustomerMessageMapper customerMessageMapper, UpdateCustomerInputPort updateCustomerInputPort) {
-        this.customerMessageMapper = customerMessageMapper;
-        this.updateCustomerInputPort = updateCustomerInputPort;
-    }
+    private UpdateCustomerInputPort updateCustomerInputPort;
+    @Autowired
+    private CustomerMessageMapper customerMessageMapper;
 
     @KafkaListener(topics = "tp-cpf-validated", groupId = "queiroz")
     public void update(CustomerMessage customerMessage){

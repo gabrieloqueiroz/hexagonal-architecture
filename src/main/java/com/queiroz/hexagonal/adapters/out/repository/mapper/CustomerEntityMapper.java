@@ -4,8 +4,6 @@ import com.queiroz.hexagonal.adapters.out.repository.entity.CustomerEntity;
 import com.queiroz.hexagonal.application.core.domain.Customer;
 import org.mapstruct.Mapper;
 
-import java.util.Optional;
-
 @Mapper(componentModel = "spring")
 public interface CustomerEntityMapper {
     CustomerEntity toCustomerEntity(Customer customer);

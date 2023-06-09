@@ -7,12 +7,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class DeleteCustomerAdapter implements DeleteCustomerOutputPort  {
-    private CustomerRepository customerRepository;
-
     @Autowired
-    public DeleteCustomerAdapter(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
-    }
+    private CustomerRepository customerRepository;
 
     public void delete(String id){
         customerRepository.deleteById(id);

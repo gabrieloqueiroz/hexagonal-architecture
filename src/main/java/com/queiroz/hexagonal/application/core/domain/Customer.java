@@ -4,19 +4,19 @@ public class Customer {
     private String id;
     private String name;
     private String cpf;
-    private boolean isValidCpf;
+    private boolean validCpf;
     private Address address;
 
-    public Customer(String id, String name, String cpf, boolean isValidCpf, Address address) {
+    public Customer(String id, String name, String cpf, boolean validCpf, Address address) {
         this.id = id;
         this.name = name;
         this.cpf = cpf;
-        this.isValidCpf = isValidCpf;
+        this.validCpf = validCpf;
         this.address = address;
     }
 
     public Customer() {
-        this.isValidCpf = false;
+        this.validCpf = false;
     }
 
     public String getId() {
@@ -44,11 +44,11 @@ public class Customer {
     }
 
     public boolean isValidCpf() {
-        return isValidCpf;
+        return validCpf;
     }
 
     public void setValidCpf(boolean validCpf) {
-        isValidCpf = validCpf;
+        this.validCpf = validCpf;
     }
 
     public Address getAddress() {
