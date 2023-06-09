@@ -1,0 +1,7 @@
+{
+    "id": "64828a0cfa855749eab71e67",
+    "name": "queiroz",
+    "zipCode": "38400000",
+    "cpf": "11131111111",
+    "validCpf": true
+}
